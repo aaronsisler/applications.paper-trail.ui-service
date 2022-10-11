@@ -1,6 +1,6 @@
 // CDN URL
 export const CDN_URL =
-  "https://cdn-e-and-b-solutions.s3.amazonaws.com/clients/harbor-centre";
+  "https://cdn-e-and-b-solutions.s3.amazonaws.com/applications/paper-trail-ui";
 
 // Client Name
 export const CLIENT_NAME = "Harbor Centre";
