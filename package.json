@@ -7,7 +7,7 @@
     "prebuild": "rm -rf ./build && rm -rf ./dist",
     "build": "next build ./src && next export -o dist ./src",
     "dev": "next dev",
-    "deploy:beta": "aws s3 sync ./dist s3://beta.ui.otterandcow.com --delete && aws cloudfront create-invalidation --distribution-id REPLACE_ME__CLOUDFRONT_ID --paths \"/*\"",
+    "deploy:beta": "aws s3 sync ./dist s3://beta.ui.otterandcow.com --delete && aws cloudfront create-invalidation --distribution-id EK3BXCWHSOX31 --paths \"/*\"",
     "deploy:prod": "aws s3 sync ./dist s3://ui.otterandcow.com --delete && aws cloudfront create-invalidation --distribution-id REPLACE_ME__CLOUDFRONT_ID --paths \"/*\"",
     "lint": "eslint \"./**/*.{js,jsx}\"",
     "gen:comp": "node ./node_modules/@ebsolutions/generate-react-templates --type=COMP",
