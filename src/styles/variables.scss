@@ -1,0 +1,70 @@
+@use "sass:color";
+
+// Colors
+$MAIN_COLOR: rgb(30, 108, 197);
+$MAIN_COLOR_DARKEN: color.adjust(
+  $color: $MAIN_COLOR,
+  $lightness: -10%,
+);
+$MAIN_COLOR_LIGHTEN: color.adjust(
+  $color: $MAIN_COLOR,
+  $lightness: 10%,
+);
+
+$SEC_COLOR: #690359;
+$GRAY_600: #1f2022;
+$GRAY_500: #3d3f42;
+$GRAY_400: #5a5c5e;
+$GRAY_300: #9fa1a4;
+$GRAY_200: #d8d8d8;
+$GRAY_100: #f5f5f5;
+
+$ERROR_RED: color.adjust(
+  $color: darkred,
+  $lightness: 15%,
+);
+
+// Feature Specific Items
+$FONT_GRAY: rgb(0, 0, 0, 0.8);
+$FONT_SEC_GRAY: rgb(44, 46, 47);
+$BORDER_GRAY: rgba(0, 0, 0, 0.5);
+$BOX_SHADOW_GRAY: rgba(189, 195, 199, 0.6);
+$BOX_SHADOW: 1px 2px $BOX_SHADOW_GRAY;
+$BOX_SHADOW_WIDGET: rgba($MAIN_COLOR_LIGHTEN, 0.25) 0px 4px 8px -2px,
+  rgba($MAIN_COLOR_LIGHTEN, 0.08) 0px 0px 0px 1px; // trello with color
+$BOX_SHADOW_WIDGET_DARKEN: 5px 0 3px rgba(0, 0, 0, 0.384),
+  0 15px 12px rgba(0, 0, 0, 0.521);
+$BORDER_RADIUS: 4px;
+
+// Spacing
+$XXSMALL: 0.3rem;
+$XSMALL: 0.6rem;
+$SMALL: 1.2rem;
+$MIDSMALL: 1.6rem;
+$MEDIUM: 1.8rem;
+$MIDLARGE: 2.4rem;
+$LARGE: 3.2rem;
+$XLARGE: 4.8rem;
+$XXLARGE: 7.6rem;
+$MAX_WIDTH__WIDGET: 500px;
+$MAX_WIDTH__TEXT: 600px;
+$MAX_WIDTH__CONTENT: 764px;
+
+//Component Heights
+$NAV_MENU_HEIGHT: 65px;
+$FOOTER_HEIGHT: 50px;
+$MAIN_HEIGHT: calc(100vh - 115px);
+$LINE_HEIGHT: 1.5;
+
+// Screen Breakpoints
+$MEDIUM_SCREEN: 641px;
+$LARGE_SCREEN: 1025px;
+$XLARGE_SCREEN: 1441px;
+$XXLARGE_SCREEN: 1921px;
+
+// Site Fonts
+$MAIN_FONT: "Roboto";
+$SEC_FONT: "Roboto";
+
+// Fonts CDN
+$FONTS_CDN: "https://cdn-e-and-b-solutions.s3.amazonaws.com/resources/fonts";

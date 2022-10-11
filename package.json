@@ -4,14 +4,44 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "rm -rf ./build && rm -rf ./dist",
+    "build": "next build ./src && next export -o dist ./src",
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
+    "deploy:beta": "aws s3 sync ./dist s3://beta.ui.otterandcow.com --delete && aws cloudfront create-invalidation --distribution-id REPLACE_ME__CLOUDFRONT_ID --paths \"/*\"",
+    "deploy:prod": "aws s3 sync ./dist s3://ui.otterandcow.com --delete && aws cloudfront create-invalidation --distribution-id REPLACE_ME__CLOUDFRONT_ID --paths \"/*\"",
+    "lint": "eslint \"./**/*.{js,jsx}\"",
+    "gen:comp": "node ./node_modules/@ebsolutions/generate-react-templates --type=COMP",
+    "gen:cont": "node ./node_modules/@ebsolutions/generate-react-templates --type=CONT",
+    "gen:page": "node ./node_modules/@ebsolutions/generate-react-templates --type=PAGE"
   },
   "dependencies": {
+    "axios": "^0.24.0",
+    "classnames": "^2.3.1",
     "next": "^12.0.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sass": "^1.43.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.19.1",
+    "@ebsolutions/generate-react-templates": "^1.7.0",
+    "babel-loader": "^8.2.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^12.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-storybook": "^0.6.4",
+    "husky": "^7.0.4",
+    "prettier": "^2.4.1",
+    "stylelint": "^14.1.0",
+    "stylelint-config-rational-order-fix": "^0.1.2",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
   },
   "repository": {
     "type": "git",

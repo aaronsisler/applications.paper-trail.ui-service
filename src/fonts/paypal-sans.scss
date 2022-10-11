@@ -1,0 +1,57 @@
+$PAYPAL_SANS_CDN: $FONTS_CDN + "/paypal-sans";
+
+@font-face {
+  font-weight: bold;
+  font-family: "PayPalSansBig";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansBig-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: lighter;
+  font-family: "PayPalSansBig";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansBig-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: medium;
+  font-family: "PayPalSansBig";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansBig-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "PayPalSansBig";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansBig-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: bold;
+  font-family: "PayPalSansSmall";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansSmall-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: lighter;
+  font-family: "PayPalSansSmall";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansSmall-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: medium;
+  font-family: "PayPalSansSmall";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansSmall-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-weight: normal;
+  font-family: "PayPalSansSmall";
+  font-style: normal;
+  src: url($PAYPAL_SANS_CDN + "/PayPalSansSmall-Regular.woff2") format("woff2");
+}
