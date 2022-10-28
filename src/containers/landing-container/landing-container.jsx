@@ -8,6 +8,7 @@ const LandingContainer = () => (
   <div>
     <p>
       Plaid page
+      <br />
       <Hyperlink href="/plaid" title="Plaid page" />.
     </p>
   </div>

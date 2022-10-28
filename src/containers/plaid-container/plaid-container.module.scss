@@ -3,6 +3,19 @@
 
 //Small screens - MOBILE
 @media only screen {
+  .plaidContainer {
+    display: grid;
+    gap: $MEDIUM;
+    padding: $MEDIUM;
+    button {
+      width: 300px;
+    }
+    &__box {
+      display: grid;
+      gap: $SMALL;
+      min-height: 75px;
+    }
+  }
 }
 
 //Medium screens - TABLET
