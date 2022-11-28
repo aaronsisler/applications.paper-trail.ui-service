@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { usePlaidLink } from "react-plaid-link";
-import { Transaction, TransactionCode } from "plaid";
+import { Transaction } from "plaid";
 import axios from "axios";
 
 import styles from "./plaid-container.module.scss";
@@ -10,15 +10,14 @@ const headers = {
   "Access-Control-Allow-Headers": "content-type",
 };
 
+const userId = 1;
+
 const createLinkToken = async (setLinkToken) => {
   try {
-    const response = await axios.post(
-      "http://localhost:3001/link-token",
-      {},
+    const response = await axios.get(
+      `http://localhost:3001/user/${userId}/link-token`,
       { headers }
     );
-    console.log("Fire useEffect");
-    console.log(response.data);
 
     const { link_token } = response.data;
 
@@ -30,25 +29,32 @@ const createLinkToken = async (setLinkToken) => {
 
 const exchangeTokens = async (publicToken) => {
   try {
-    const response = await axios.post(
-      "http://localhost:3001/access-token",
-      {
-        "x-public-token": publicToken,
-      },
+    await axios.post(
+      `http://localhost:3001/user/${userId}/access-token`,
+      { publicToken },
       { headers }
     );
-
-    console.log(response.data);
   } catch (e) {
     console.log(e);
   }
 };
 
-const callTransactions = async (setTransactions) => {
+const startTransactionBatch = async () => {
   try {
-    const response = await axios.get("http://localhost:3001/transactions", {
+    await axios.post(`http://localhost:3001/user/${userId}/transaction-batch`, {
       headers,
     });
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const getTransactions = async (setTransactions) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:3001/user/${userId}/transactions`,
+      { headers }
+    );
 
     const { transactions } = response.data;
 
@@ -95,7 +101,10 @@ const PlaidContainer = () => {
           Connect a bank account
         </button>
         <button onClick={() => exchangeTokens(publicToken)}>Swap Tokens</button>
-        <button onClick={() => callTransactions(setTransactions)}>
+        <button onClick={() => startTransactionBatch()}>
+          Start Transaction Batch
+        </button>
+        <button onClick={() => getTransactions(setTransactions)}>
           Get Transactions
         </button>
       </div>
